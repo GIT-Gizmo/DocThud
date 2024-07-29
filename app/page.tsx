@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main className="flex h-screen max-h-screen">
-      <section className="remove-scrollbar container my-auto">
+      <section className="remove-scrollbar container">
         <div className="sub-container max-w-[496px]">
           <Image
             src="/assets/icons/logo-full.svg"
@@ -17,7 +17,7 @@ export default function Home() {
 
           <PatientForm />
 
-          <div className="text-14-regular mt-20 flex justify-between">
+          <div className="text-14-regular mt-20 flex justify-between pb-12">
             <p className="justify-items-end text-dark-600 xl:text-left">© 2024 DocThud</p>
             <Link href="/?admin=true" className="text-green-500">Admin</Link>
           </div>
