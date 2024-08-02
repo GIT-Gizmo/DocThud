@@ -49,16 +49,34 @@ const RegisterForm = ({ user }: { user: User }) => {
         }
         try {
             const patientData = {
-                ...values,
                 userId: user.$id,
+                name: values.name,
+                email: values.email,
+                phone: values.phone,
                 birthDate: new Date(values.birthDate),
-                IdentificationDocument: formData,
+                gender: values.gender,
+                address: values.address,
+                occupation: values.occupation,
+                emergencyContactName: values.emergencyContactName,
+                emergencyContactNumber: values.emergencyContactNumber,
+                primaryPhysician: values.primaryPhysician,
+                insuranceProvider: values.insuranceProvider,
+                insurancePolicyNumber: values.insurancePolicyNumber,
+                allergies: values.allergies,
+                currentMedication: values.currentMedication,
+                familyMedicalHistory: values.familyMedicalHistory,
+                pastMedicalHistory: values.pastMedicalHistory,
+                identificationType: values.identificationType,
+                identificationNumber: values.identificationNumber,
+                identificationDocument: values.identificationDocument
+                    ? formData
+                    : undefined,
+                privacyConsent: values.privacyConsent,
+                treatmentConsent: values.treatmentConsent,
+                disclosureConsent: values.disclosureConsent
             }
 
-            console.log(patientData)
-            // @ts-ignore
             const patient = await registerPatient(patientData);
-
 
             if (patient) router.push(`/patients/${user.$id}/new-appointment`)
         } catch (error) {
