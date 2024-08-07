@@ -64,7 +64,7 @@ const AppointmentForm = ({ type, userId, patientId }: { type: "create" | "cancel
 
                 if (appointment) {
                     form.reset(),
-                        router.push(`/patients/${userId}/new-appointment/success?appointmentId=${appointment.id}`)
+                        router.push(`/patients/${userId}/new-appointment/success?appointmentId=${appointment.$id}`)
                 }
             }
 
