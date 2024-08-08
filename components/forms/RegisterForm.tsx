@@ -241,7 +241,7 @@ const RegisterForm = ({ user }: { user: User }) => {
 
                     <CustomFormField
                         control={form.control}
-                        fieldType={FormFieldType.PHONE_INPUT}
+                        fieldType={FormFieldType.INPUT}
                         name="insurancePolicyNumber"
                         label="Insurance Policy number"
                         placeholder="ABC123456789"
@@ -308,7 +308,7 @@ const RegisterForm = ({ user }: { user: User }) => {
                     control={form.control}
                     fieldType={FormFieldType.INPUT}
                     name="identificationNumber"
-                    label="Identificatiob number"
+                    label="Identification number"
                     placeholder="123456789"
                 />
 
