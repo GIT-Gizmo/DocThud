@@ -1,10 +1,15 @@
 import PatientForm from "@/components/forms/PatientForm";
 import Image from "next/image";
 import Link from "next/link";
+import PasskeyModal from "@/components/PasskeyModal"
 
-export default function Home() {
+export default function Home({ searchParams }: SearchParamProps) {
+  const isAdmin = searchParams.admin === "true";
+
   return (
     <main className="flex h-screen max-h-screen">
+      {isAdmin && <PasskeyModal />}
+
       <section className="remove-scrollbar container">
         <div className="sub-container max-w-[496px]">
           <Image
@@ -12,12 +17,12 @@ export default function Home() {
             height={1000}
             width={1000}
             alt="Logo Image"
-            className="h-10 w-fit"
+            className="h-10 w-fit mb-12"
           />
 
           <PatientForm />
 
-          <div className="text-14-regular mt-20 flex justify-between py-12">
+          <div className="text-14-regular mt-20 flex justify-between pb-12">
             <p className="justify-items-end text-dark-600 xl:text-left">© 2024 DocThud</p>
             <Link href="/?admin=true" className="text-green-500">Admin</Link>
           </div>

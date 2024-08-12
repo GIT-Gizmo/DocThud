@@ -3,7 +3,6 @@
 import RegisterForm from '@/components/forms/RegisterForm'
 import { getUser } from '@/lib/actions/patient.actions'
 import Image from 'next/image'
-import React from 'react'
 
 const Register = async ({ params: { userId } }: SearchParamProps) => {
     const user = await getUser(userId);
