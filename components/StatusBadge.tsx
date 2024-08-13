@@ -16,6 +16,11 @@ export const StatusBadge = ({ status }: { status: Status }) => {
                 className='h-fit w-3'
                 alt={status}
             />
+            <p className={clsx("text-12-semibold capitalize", {
+                "text-green-500": status === "scheduled",
+                "text-blue-500": status === "pending",
+                "text-red-500": status === "cancelled",
+            })}>{status}</p>
         </div>
     )
 }
