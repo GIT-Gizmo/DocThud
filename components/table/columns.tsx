@@ -54,20 +54,24 @@ export const columns: ColumnDef<Appointment>[] = [
         accessorKey: "primaryPhysician",
         header: "Doctor",
         cell: ({ row }) => {
-            const doctor = Doctors.find((doc) => row.original.primaryPhysician)
+            const appointment = row.original;
+
+            const doctor = Doctors.find(
+                (doctor) => doctor.name === appointment.primaryPhysician
+            );
 
             return (
                 <div className="flex items-center gap-3">
                     <Image
                         src={doctor?.image!}
-                        alt={doctor?.name!}
+                        alt="doctor"
                         width={100}
                         height={100}
                         className="size-8"
                     />
                     <p className="whitespace-nowrap">Dr. {doctor?.name}</p>
                 </div>
-            )
+            );
         },
     },
     {
