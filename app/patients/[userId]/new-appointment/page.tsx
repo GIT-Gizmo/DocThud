@@ -2,8 +2,13 @@ import AppointmentForm from "@/components/forms/AppointmentForm";
 import { getPatient } from "@/lib/actions/patient.actions";
 import Image from "next/image";
 
+import * as Sentry from '@sentry/nextjs'
+
 const NewAppointment = async ({ params: { userId } }: SearchParamProps) => {
     const patient = await getPatient(userId);
+
+    // used for tracking the number of users that viewed a page.
+    Sentry.metrics.set("user_view_new-appointment", patient.name);
 
     if (!patient) {
         // Handle the case where the patient is not found
